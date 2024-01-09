@@ -1,9 +1,8 @@
 // import CountPage from './Components/CountPage'
 
 import Todo from "./Components/todo/Todo"
-// import TodoList from "./Components/todo/TodoList"
+import TodoList from "./Components/todo/TodoList"
 import TodoProvider from "./context/TodoProvider"
-
 // import FormWithUseReducer from './Components/FormWithUseReducer'
 function App() {
 
@@ -11,7 +10,7 @@ function App() {
     <>
       <TodoProvider>
         <Todo />
-        {/* <TodoList /> */}
+        <TodoList />
       </TodoProvider>
     </>
   )

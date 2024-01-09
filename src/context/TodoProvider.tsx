@@ -14,14 +14,20 @@ type TAction = {
     type: string;
     payload: string
 }
+
+export const actionTypes = {
+    ADD_TODO: 'addTodo',
+    TASK_COMPLETED: 'taskCompleted'
+}
 const initialValue: string[] | undefined = []
+
 
 const reducer = (currentState: string[], action: TAction): string[] => {
     switch (action.type) {
-        case 'addTodo':
+        case actionTypes.ADD_TODO:
             return [...currentState, action.payload]
-        case 'taskCompleted':
-            return currentState.map((item ) => item.id  === action.payload ? { ...item, isCompleted: !item.isCompleted } : item) 
+        case actionTypes.TASK_COMPLETED:
+            return currentState.map((item )  => item.id === action.payload ? { ...item, isCompleted: !item.isCompleted } : item)
 
 
         default:

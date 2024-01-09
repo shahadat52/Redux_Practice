@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FormEvent, useContext, useState } from 'react'
-import { TodoContext } from '../../context/TodoProvider';
+import { TodoContext, actionTypes } from '../../context/TodoProvider';
 const Todo = () => {
-    const { state, dispatch } = useContext(TodoContext)
+    const { dispatch } = useContext(TodoContext) as any
     const [task, setTask] = useState('')
     const todo = {
         id: Math.floor(10000000 + Math.random() * 90000000),
@@ -11,7 +12,7 @@ const Todo = () => {
     console.log({ todo });
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
-        dispatch({type: 'addTodo', payload: todo})
+        dispatch({ type: actionTypes.ADD_TODO, payload: todo })
 
     }
     return (
